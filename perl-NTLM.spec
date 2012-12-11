@@ -1,20 +1,20 @@
 %define upstream_name    NTLM
 %define upstream_version 1.08
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    An NTLM authentication module
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Authen/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	An NTLM authentication module
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Authen/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Digest::HMAC_MD5)
-BuildRequires: perl(MIME::Base64)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Digest::HMAC_MD5)
+BuildRequires:	perl(MIME::Base64)
+BuildArch:	noarch
 
 %description
     This module provides methods to use NTLM authentication.  It can
@@ -36,24 +36,26 @@ FUNCTIONS
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sun Apr 17 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.80.0-1mdv2011.0
++ Revision: 654174
+- update to new version 1.08
+
+* Sat Feb 05 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.50.0-1
++ Revision: 636169
+- import perl-NTLM
 
