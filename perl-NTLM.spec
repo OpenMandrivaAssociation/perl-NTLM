@@ -2,14 +2,14 @@
 %define upstream_version 1.08
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Version:	%perl_convert_version 1.09
+Release:	1
 
 Summary:	An NTLM authentication module
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Authen/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Authen/NTLM-1.09.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Digest::HMAC_MD5)
@@ -58,4 +58,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Sat Feb 05 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.50.0-1
 + Revision: 636169
 - import perl-NTLM
+
 
