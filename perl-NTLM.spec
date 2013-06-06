@@ -1,6 +1,5 @@
 %define upstream_name    NTLM
-%define upstream_version 1.08
-
+%define upstream_version 1.09
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 1.09
 Release:	1
