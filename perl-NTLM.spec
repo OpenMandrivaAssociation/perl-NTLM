@@ -2,7 +2,7 @@
 %define upstream_version 1.09
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 1.09
-Release:	1
+Release:	2
 
 Summary:	An NTLM authentication module
 License:	GPL+ or Artistic
